@@ -27,10 +27,13 @@ https://mvnrepository.com/
 
 For Spring MVC Basics:
 
+https://spring.io/guides/gs/serving-web-content/
+
 https://www.youtube.com/playlist?list=PLBgMUB7xGcO31B2gBmy1igpZn6LK78-CJ
 
 
 ThymeLeaf Basics:
+
 http://www.thymeleaf.org/doc/articles/standarddialect5minutes.html
 
 
