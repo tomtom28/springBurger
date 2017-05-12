@@ -13,10 +13,16 @@ For Java Basics:
 
 https://www.youtube.com/playlist?list=PLE7E8B7F4856C9B19
 
+https://www.tutorialspoint.com/java/index.htm
+
 
 For Maven Basics:
 
 https://www.youtube.com/watch?v=al7bRZzz4oU&list=PL92E89440B7BFD0F6
+
+https://www.tutorialspoint.com/maven/maven_quick_guide.htm
+
+https://mvnrepository.com/
 
 
 For Spring MVC Basics:
