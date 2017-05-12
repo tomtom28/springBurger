@@ -30,6 +30,10 @@ For Spring MVC Basics:
 https://www.youtube.com/playlist?list=PLBgMUB7xGcO31B2gBmy1igpZn6LK78-CJ
 
 
+ThymeLeaf Basics:
+http://www.thymeleaf.org/doc/articles/standarddialect5minutes.html
+
+
 Spring MVC + AngularJS:
 
 https://www.youtube.com/playlist?list=PL4gCdGOq-cxJrbRMWjrIvGhYqQO1tvYyX
