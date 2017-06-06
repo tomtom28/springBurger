@@ -2,6 +2,8 @@
 
 A re-make of my classic burger app using Java, Maven, MySQL, Thymeleaf, and the Spring MVC framework.
 
+It will also include an Excel download feature for users to analyze burger consumption.
+
 
 
 ### Sources
@@ -14,6 +16,11 @@ For Java Basics:
 https://www.youtube.com/playlist?list=PLE7E8B7F4856C9B19
 
 https://www.tutorialspoint.com/java/index.htm
+
+
+For Java-Excel API
+
+https://www.mkyong.com/java/jexcel-api-reading-and-writing-excel-file-in-java/
 
 
 For Maven Basics:
