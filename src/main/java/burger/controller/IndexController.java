@@ -27,8 +27,8 @@ public class IndexController {
 
           // Create Connection
           String url = "jdbc:mysql://localhost:3306/burgers_db";
-          String userName = "root";
-          String password = "root";
+          String userName = ""; // "root" on PC or "" on Mac
+          String password = ""; // "root" on PC or "" on Mac
           Connection conn = DriverManager.getConnection (url, userName, password);
 
 
