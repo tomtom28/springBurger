@@ -1,9 +1,12 @@
 package burger.controller;
 
 import java.lang.*;
+import java.util.*;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -36,19 +39,26 @@ public class IndexController {
           Statement findAllReady = conn.createStatement();
           ResultSet readyBurgers = findAllReady.executeQuery("SELECT * FROM burgers WHERE devoured = false");
           
-          // Loop over the Query ResultSet
+          // Loop over the Query ResultSet and Append to HashMap of Edible Burgers
+          HashMap<Integer, String> edibleBurgers = new HashMap<Integer, String>();
+
           while ( readyBurgers.next() ) {
               
             // Get Fields of Current ResultSet Row
-            int id = readyBurgers.getInt("id");
+            int burgerId = readyBurgers.getInt("id");
             String burgerName = readyBurgers.getString("burgerName");
-            Boolean devoured = readyBurgers.getBoolean("devoured");
             
             // Print Fields
-            String p = id + " | " + burgerName + " | " + String.valueOf(devoured);
+            String p = burgerId + " | " + burgerName;
             System.out.println(p);
 
+            // Append Burger to Edible HashMap
+            edibleBurgers.put(burgerId, burgerName);
+
           }
+
+          // Append Edible Burgers to model
+          model.addAttribute("edibleBurgers", edibleBurgers);
 
 
           // Execute SQL Query for Eaten Burgers
@@ -59,11 +69,12 @@ public class IndexController {
           while ( eatenBurgers.next() ) {
               
             // Get Fields of Current ResultSet Row
+            String burgerId2 = eatenBurgers.getString("id");
             String burgerName2 = eatenBurgers.getString("burgerName");
             String devourerName2 = eatenBurgers.getString("devourerName");
             
             // Print Fields
-            String p2 = burgerName2 + " | " + devourerName2;
+            String p2 = burgerId2 + " | " + burgerName2 + " | " + devourerName2;
             System.out.println(p2);
 
           }
@@ -78,6 +89,17 @@ public class IndexController {
 
 
         return "index";
+    }
+
+    @PostMapping("/devour")
+    public String devour() {
+
+        // Need to figure out how to get the burger Id and person name
+
+        System.out.println("ate it");
+
+        return "redirect:";
+
     }
 
 }

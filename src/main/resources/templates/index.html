@@ -34,18 +34,22 @@
       
 
       <!-- Burger Content Partial -->
+      <div class="row">
       <th:block layout:include="fragments/burgers"/>
+      </div>
 
 
-      <br /><br />
+      <br />
+
 
       <!-- Input New Burgers Form -->
-      <form th:action="@{/}" method="POST"> 
-        
+      <div class="row">
+      <form th:action="@{/}" method="POST">
+
         <!-- Text Area Input -->
         <div class="row">
           <!-- Empty Div to help center textarea -->
-          <div class="col-md-3"></div> 
+          <div class="col-md-3"></div>
 
           <!-- Burger Input Box -->
           <div class="form-group col-md-6">
@@ -55,15 +59,16 @@
           </div>
 
           <!-- Empty Div to help center textarea -->
-          <div class="col-md-3"></div> 
+          <div class="col-md-3"></div>
         </div>
-      
+
         <!-- Submit Button -->
         <center>
           <button id="submit-button" type="submit" class="btn btn-danger">Place Order</button>
         </center>
 
       </form>
+      </div>
 
       <br />
 
