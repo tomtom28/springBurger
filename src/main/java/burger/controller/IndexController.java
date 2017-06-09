@@ -18,7 +18,7 @@ import java.sql.ResultSet;
 public class IndexController {
 
     @RequestMapping("/")
-    public String greeting(@RequestParam(value="name", required=false, defaultValue="Burger") String name, Model model) {
+    public String index(@RequestParam(value="name", required=false, defaultValue="Burger") String name, Model model) {
         
         model.addAttribute("name", name);
 

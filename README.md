@@ -1,6 +1,6 @@
 # springBurger
 
-A re-make of my classic burger app using Java, Maven, MySQL, Thymeleaf, and the Spring MVC framework.
+A re-make of my classic burger app using Java, Maven, MySQL, Thymeleaf, and the Spring Boot framework.
 
 
 
