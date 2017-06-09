@@ -6,14 +6,25 @@
       <div id="ready_to_eat">
 
         <!-- Dynamically Insert Ready Burgers Here -->
-          <form th:action="@{/}" method="POST">
+        <div th:each="burger : ${edibleBurgers}">
+          <form th:action="@{/devour}" method="POST">
             <div class="input-group">
-              <li class="form-control">1. Krabby Patty</li>
+              <li class="form-control">
+                  <div class="col-md-7 col-xs-7">
+                      <span th:text="${burger.key}"></span>.
+                      <span th:text="${burger.value}"></span>
+                  </div>
+                  <div class="col-md-5 col-xs-5">
+                      <input name="burgerEater" type="text" class="form-control bugerEaterTextBox" placeholder="Customer Name" />
+                  </div>
+              </li>
                 <span class="input-group-btn">
-                  <button class="btn btn-success devour-button" type="submit">Devour It!</button>
+                  <button class="btn btn-success devour-button" type="submit" th:value="${burger.key}">Devour It!</button>
                 </span>
             </div>
           </form>
+        </div>
+
 
       </div>
     </div>
