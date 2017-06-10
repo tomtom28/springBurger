@@ -4,7 +4,9 @@ import java.lang.*;
 import java.sql.*;
 import java.util.*;
 
+import burger.model.Burger;
 import burger.model.Devourer;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,9 +41,9 @@ public class IndexController {
             int burgerId = readyBurgers.getInt("id");
             String burgerName = readyBurgers.getString("burgerName");
             
-            // Print Fields
-            String p = burgerId + " | " + burgerName;
-            System.out.println(p);
+            // Print Fields (for de-bugging)
+            // String p = burgerId + " | " + burgerName;
+            // System.out.println(p);
 
             // Append Burger to Edible HashMap
             edibleBurgers.put(burgerId, burgerName);
@@ -67,9 +69,9 @@ public class IndexController {
             String devourerName2 = eatenBurgers.getString("devourerName");
             String[] burgerNameAndDevourerName = {burgerName2, devourerName2};
             
-            // Print Fields
-            String p2 = burgerId2 + " | " + burgerName2 + " | " + devourerName2;
-            System.out.println(p2);
+            // Print Fields (for de-bugging)
+            // String p2 = burgerId2 + " | " + burgerName2 + " | " + devourerName2;
+            // System.out.println(p2);
 
             // Append Burger to Edible HashMap
             consumedBurgers.put(burgerId2, burgerNameAndDevourerName);
@@ -88,9 +90,7 @@ public class IndexController {
           System.out.println(err);
         }
         
-
-
-
+        // Render the index.html page
         return "index";
     }
 
@@ -129,7 +129,7 @@ public class IndexController {
             // Insert a new devourer
             PreparedStatement preparedStmt = conn.prepareStatement("INSERT INTO devourers(devourerName, burgerId) VALUES (?, ?)");
             preparedStmt.setString (1, newBurgerEater.getDevourerName() );
-            preparedStmt.setString (2, Integer.toString( newBurgerEater.getBurgerId() ) );
+            preparedStmt.setInt (2, newBurgerEater.getBurgerId() );
             preparedStmt.execute();
 
 
@@ -141,11 +141,55 @@ public class IndexController {
             System.out.println(err);
         }
 
-
-
-
+        // Re-direct to index route to re-render the page with new devourer
         return "redirect:/";
 
     }
 
-}
+
+    @RequestMapping("/cook")
+    public String devour(@RequestParam(value="burgerName", required=true) String burgerName) {
+
+        // Print Fields: Burger Name comes from Request Parameter
+        System.out.println("Order Up!");
+        System.out.println("Burger Name: " + "\"" + burgerName + "\"");
+
+        // If no name is given, give a default name
+        if (burgerName == "") {
+            burgerName = "Default Burger";
+        }
+
+        // Create new Burger class using Burger Name (this is more for practice than anything else)
+        Burger newBurger = new Burger(burgerName);
+
+
+        // Connect to MySQL Database
+        try {
+
+            // Create Connection
+            String url = "jdbc:mysql://localhost:3306/burgers_db";
+            String userName = "root";
+            String password = ""; // "root" on PC or "" on Mac
+            Connection conn = DriverManager.getConnection(url, userName, password);
+
+            // Insert a new burger
+            PreparedStatement preparedStmt = conn.prepareStatement("INSERT INTO burgers(burgerName, devoured) VALUES (?, ?)");
+            preparedStmt.setString (1, newBurger.getBurgerName() );
+            preparedStmt.setBoolean (2, newBurger.getDevoured() );
+            preparedStmt.execute();
+
+            // Close MySQL Connection
+            conn.close();
+
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+
+
+        // Re-direct to index route to re-render the page with new burger
+        return "redirect:/";
+
+    }
+
+    }

@@ -40,7 +40,7 @@
 
       <!-- Input New Burgers Form -->
       <div class="row">
-      <form th:action="@{/}" method="POST">
+      <form th:action="@{/cook}" method="POST">
 
         <!-- Text Area Input -->
         <div class="row">
@@ -51,7 +51,7 @@
           <div class="form-group col-md-6">
             <br /><br />
             <center><label for="new_burger" class="red_font">Request a new burger and place your order!</label></center>
-            <textarea class="form-control" columns="8" rows="4" id="new_burger" name="burger_name"></textarea>
+            <textarea class="form-control" columns="8" rows="4" id="new_burger" name="burgerName"></textarea>
           </div>
 
           <!-- Empty Div to help center textarea -->
