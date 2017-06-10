@@ -21,9 +21,7 @@ import java.sql.ResultSet;
 public class IndexController {
 
     @RequestMapping("/")
-    public String greeting(@RequestParam(value="name", required=false, defaultValue="Burger") String name, Model model) {
-        
-        model.addAttribute("name", name);
+    public String index(Model model) {
 
         // Connect to MySQL Database
         try {
@@ -64,21 +62,29 @@ public class IndexController {
           // Execute SQL Query for Eaten Burgers
           Statement findAllEaten = conn.createStatement();
           ResultSet eatenBurgers = findAllEaten.executeQuery("SELECT * FROM burgers, devourers WHERE devourers.burgerId = burgers.id");
-          
-          // Loop over the Query ResultSet
+
+          // Loop over the Query ResultSet and Append to HashMap of Edible Burgers
+          HashMap<Integer, String[]> consumedBurgers = new HashMap<Integer, String[]>();
+
           while ( eatenBurgers.next() ) {
               
             // Get Fields of Current ResultSet Row
-            String burgerId2 = eatenBurgers.getString("id");
+            int burgerId2 = eatenBurgers.getInt("id");
             String burgerName2 = eatenBurgers.getString("burgerName");
             String devourerName2 = eatenBurgers.getString("devourerName");
+            String[] burgerNameAndDevourerName = {burgerName2, devourerName2};
             
             // Print Fields
             String p2 = burgerId2 + " | " + burgerName2 + " | " + devourerName2;
             System.out.println(p2);
 
+            // Append Burger to Edible HashMap
+            consumedBurgers.put(burgerId2, burgerNameAndDevourerName);
+
           }
 
+          // Append Edible Burgers to model
+          model.addAttribute("consumedBurgers", consumedBurgers);
 
         }
         catch (SQLException err) {

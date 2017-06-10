@@ -35,12 +35,20 @@
       <div id="already_eaten">
 
         <!-- Dynamically Insert Eaten Burgers Here -->
+          <div th:each="burger : ${consumedBurgers}">
             <div class="input-group">
-              <li class="form-control">2. Eaten Burger</li>
+              <li class="form-control">
+                  <div class="col-md-6 col-xs-6">
+                    <span th:text="${burger.key}"></span>.
+                    <span th:text="${burger.value[0]}"></span>
+                  </div>
+                  <div class="col-md-6 col-xs-6"><i>(Eaten by <span th:text="${burger.value[1]}"></span>)</i></div>
+              </li>
               <span class="input-group-btn">
                 <button class="btn btn-info whine-button" type="button">Whine!</button>
               </span>
             </div>
+          </div>
 
 
       </div>
