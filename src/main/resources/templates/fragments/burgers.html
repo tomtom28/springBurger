@@ -7,7 +7,7 @@
 
         <!-- Dynamically Insert Ready Burgers Here -->
         <div th:each="burger : ${edibleBurgers}">
-          <form th:action="@{/devour}" method="POST">
+          <form th:action="@{/devour/} + ${burger.key}" method="POST">
             <div class="input-group">
               <li class="form-control">
                   <div class="col-md-7 col-xs-7">

@@ -1,20 +1,13 @@
 package burger.controller;
 
 import java.lang.*;
+import java.sql.*;
 import java.util.*;
 
+import burger.model.Devourer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -86,6 +79,10 @@ public class IndexController {
           // Append Edible Burgers to model
           model.addAttribute("consumedBurgers", consumedBurgers);
 
+
+          // Close MySQL Connection
+          conn.close();
+
         }
         catch (SQLException err) {
           System.out.println(err);
@@ -97,14 +94,57 @@ public class IndexController {
         return "index";
     }
 
-    @PostMapping("/devour")
-    public String devour() {
+    @RequestMapping("/devour/{burgerId}")
+    public String devour(@PathVariable(value = "burgerId") int burgerId, @RequestParam(value="burgerEater", required=true) String burgerEater) {
 
-        // Need to figure out how to get the burger Id and person name
+        // Print Fields: Burger Id comes from URL Path Variable and Burger Devourer Name from Request Parameter
+        System.out.println("Yummy!");
+        System.out.println("Burger Id: " + "\"" + burgerId + "\"" + " and " + "Devourer Name: " + "\"" + burgerEater + "\"");
 
-        System.out.println("ate it");
+        // If no name is given, default to Anonymous
+        if (burgerEater == "") {
+            burgerEater = "Anonymous";
+        }
 
-        return "redirect:";
+
+        // Create new Devourer class using Burger Id and Devourer Name (this is more for practice than anything else)
+        Devourer newBurgerEater = new Devourer(burgerEater, burgerId);
+
+
+        // Connect to MySQL Database
+        try {
+
+            // Create Connection
+            String url = "jdbc:mysql://localhost:3306/burgers_db";
+            String userName = "root";
+            String password = ""; // "root" on PC or "" on Mac
+            Connection conn = DriverManager.getConnection(url, userName, password);
+
+
+            // Update selected burger to devoured
+            Statement updateDevouredBurger = conn.createStatement();
+            updateDevouredBurger.executeUpdate("UPDATE burgers SET devoured=true WHERE id = " + burgerId);
+
+
+            // Insert a new devourer
+            PreparedStatement preparedStmt = conn.prepareStatement("INSERT INTO devourers(devourerName, burgerId) VALUES (?, ?)");
+            preparedStmt.setString (1, newBurgerEater.getDevourerName() );
+            preparedStmt.setString (2, Integer.toString( newBurgerEater.getBurgerId() ) );
+            preparedStmt.execute();
+
+
+            // Close MySQL Connection
+            conn.close();
+
+        }
+        catch (SQLException err) {
+            System.out.println(err);
+        }
+
+
+
+
+        return "redirect:/";
 
     }
 

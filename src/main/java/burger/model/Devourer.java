@@ -11,4 +11,13 @@ public class Devourer {
         this.burgerId = burgerId;
     }
 
+    // Getter for Devourer Name
+    public String getDevourerName() {
+        return devourerName;
+    }
+
+    // Getter for Devoured Burger Id
+    public int getBurgerId() {
+        return burgerId;
+    }
 }
