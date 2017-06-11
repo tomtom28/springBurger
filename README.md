@@ -1,8 +1,12 @@
 # springBurger
 
-A re-make of my classic burger app using Java, Maven, MySQL, Thymeleaf, and the Spring MVC framework.
+A re-make of my classic burger app using Java, Maven, MariaDB, Thymeleaf, and the Spring MVC framework.
 
 It will also include an Excel download feature for users to analyze burger consumption.
+
+Check it out!
+
+https://java-burger.herokuapp.com/
 
 
 
@@ -52,10 +56,24 @@ https://www.youtube.com/playlist?list=PL4gCdGOq-cxJrbRMWjrIvGhYqQO1tvYyX
 
 ### Cloning Down the Repo
 
-Save yourself all the headache and open it into IntelliJ using the Import option, selecting the pom.xml file.
+Save yourself all the headache and open the project with IntelliJ...
+
+Download [IntelliJ](https://www.jetbrains.com/idea/) Community Edition
+
+Using the Import option, select the pom.xml file.
+
+IntelliJ will automatically build the dependencies using Maven (built into IntelliJ).
+
+Then, open MySQL workbench and create a burger database using the `schema.sql` file.
+
+After that, click the green play button in IntelliJ to run the project.
+
+Finally, open up to localhost:8080 in your browser to see the webapp in action.
 
 
 If you dare to take a command line approach...
+
+Seed the database using the schema file from above.
 
 Using Maven, run `mvn compile` to download all dependencies.
 
