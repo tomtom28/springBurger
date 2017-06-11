@@ -58,27 +58,27 @@ https://www.youtube.com/playlist?list=PL4gCdGOq-cxJrbRMWjrIvGhYqQO1tvYyX
 
 Save yourself all the headache and open the project with IntelliJ...
 
-Download [IntelliJ](https://www.jetbrains.com/idea/) Community Edition
+  - Download [IntelliJ](https://www.jetbrains.com/idea/) Community Edition
 
-Using the Import option, select the pom.xml file.
+  - Using the Import option, select the pom.xml file.
 
-IntelliJ will automatically build the dependencies using Maven (built into IntelliJ).
+  - IntelliJ will automatically build the dependencies using Maven (built into IntelliJ).
 
-Then, open MySQL workbench and create a burger database using the `schema.sql` file.
+  - Then, open MySQL workbench and create a burger database using the `schema.sql` file.
 
-After that, click the green play button in IntelliJ to run the project.
+  - After that, click the green play button in IntelliJ to run the project.
 
-Finally, open up to localhost:8080 in your browser to see the webapp in action.
+  - Finally, open up to localhost:8080 in your browser to see the webapp in action.
 
 
 If you dare to take a command line approach...
 
-Seed the database using the schema file from above.
+  - Seed the database using the schema file from above.
 
-Using Maven, run `mvn compile` to download all dependencies.
+  - Using Maven, run `mvn compile` to download all dependencies.
 
-Using Maven, run `mvn package` to package the project into a war file.
+  - Using Maven, run `mvn package` to package the project into a war file.
 
-Note you cannot run `java -cp target/classes/burger-0.1.0.war org.burger.Application`. Instead, you will need to open it via [Tomcat](http://tomcat.apache.org/) instead.
+  - Note you cannot run `java -cp target/classes/burger-0.1.0.war org.burger.Application`. Instead, you will need to open it via [Tomcat](http://tomcat.apache.org/) instead.
 
-If needed, you can remove all downloaded dependencies using `mvn clean`.
+  - If needed, you can remove all downloaded dependencies using `mvn clean`.
