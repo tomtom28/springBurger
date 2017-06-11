@@ -79,6 +79,8 @@ If you dare to take a command line approach...
 
   - Using Maven, run `mvn package` to package the project into a war file.
 
-  - Note you cannot run `java -cp target/classes/burger-0.1.0.war org.burger.Application`. Instead, you will need to open it via [Tomcat](http://tomcat.apache.org/) instead.
+  - Then, you can run `java -jar target/burger-0.1.0.war` to launch the server. Just note that you may need to have [Tomcat](http://tomcat.apache.org/) installed.
+
+  - Finally, open up to localhost:8080 in your browser to see the webapp in action.
 
   - If needed, you can remove all downloaded dependencies using `mvn clean`.
