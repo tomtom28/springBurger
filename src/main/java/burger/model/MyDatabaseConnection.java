@@ -21,7 +21,7 @@ public class MyDatabaseConnection {
         // Heroku
         else {
             System.out.println("Connecting to AWS...");
-            dataBaseURL = "jdbc:mysql://" + JAWSDB_MARIA_URL.split("@")[1].split("/")[0];
+            dataBaseURL = "jdbc:mysql://" + JAWSDB_MARIA_URL.split("@")[1];
             userName = JAWSDB_MARIA_URL.split(":")[1].split("//")[1];
             password = JAWSDB_MARIA_URL.split(":")[2].split("@")[0];
 
