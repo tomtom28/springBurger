@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -cp target/burger-0.1.0.war org.burger.Application
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/burger-0.1.0.war
