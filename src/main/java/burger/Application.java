@@ -8,10 +8,6 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-
-        String mariaDBURL = System.getenv("JDBC_DATABASE_URL");
-        System.out.println(mariaDBURL);
-
     }
 
 }

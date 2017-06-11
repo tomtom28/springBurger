@@ -6,6 +6,7 @@ import java.util.*;
 
 import burger.model.Burger;
 import burger.model.Devourer;
+import burger.model.MyDatabaseConnection;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,10 +22,11 @@ public class IndexController {
         // Connect to MySQL Database
         try {
 
-          // Create Connection
-          String url = "jdbc:mysql://localhost:3306/burgers_db";
-          String userName = "root";
-          String password = ""; // "root" on PC or "" on Mac
+          // Create MySQL Connection based on localhost or Heroku deployment
+          MyDatabaseConnection myDatabaseCredentials = new MyDatabaseConnection(System.getenv("JAWSDB_MARIA_URL"));
+          String url = myDatabaseCredentials.getDatabaseURL();
+          String userName = myDatabaseCredentials.getUsername();
+          String password = myDatabaseCredentials.getPassword();
           Connection conn = DriverManager.getConnection (url, userName, password);
 
 
@@ -114,10 +116,11 @@ public class IndexController {
         // Connect to MySQL Database
         try {
 
-            // Create Connection
-            String url = "jdbc:mysql://localhost:3306/burgers_db";
-            String userName = "root";
-            String password = ""; // "root" on PC or "" on Mac
+            // Create MySQL Connection based on localhost or Heroku deployment
+            MyDatabaseConnection myDatabaseCredentials = new MyDatabaseConnection(System.getenv("JAWSDB_MARIA_URL"));
+            String url = myDatabaseCredentials.getDatabaseURL();
+            String userName = myDatabaseCredentials.getUsername();
+            String password = myDatabaseCredentials.getPassword();
             Connection conn = DriverManager.getConnection(url, userName, password);
 
 
@@ -166,10 +169,11 @@ public class IndexController {
         // Connect to MySQL Database
         try {
 
-            // Create Connection
-            String url = "jdbc:mysql://localhost:3306/burgers_db";
-            String userName = "root";
-            String password = ""; // "root" on PC or "" on Mac
+            // Create MySQL Connection based on localhost or Heroku deployment
+            MyDatabaseConnection myDatabaseCredentials = new MyDatabaseConnection(System.getenv("JAWSDB_MARIA_URL"));
+            String url = myDatabaseCredentials.getDatabaseURL();
+            String userName = myDatabaseCredentials.getUsername();
+            String password = myDatabaseCredentials.getPassword();
             Connection conn = DriverManager.getConnection(url, userName, password);
 
             // Insert a new burger
