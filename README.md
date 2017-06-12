@@ -1,4 +1,4 @@
-# springBurger
+# :coffee: :seedling: Spring Burger :hamburger: 
 
 A re-make of my classic burger app using Java, Maven, MariaDB, Thymeleaf, and the Spring MVC framework.
 
