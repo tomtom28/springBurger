@@ -14,7 +14,7 @@ public class MyDatabaseConnection {
             System.out.println("Connecting to localhost...");
             dataBaseURL = "jdbc:mysql://localhost:3306/burgers_db";
             userName = "root";
-            password = ""; // "root" on PC or "" on Mac
+            password = "root"; // "root" on PC or "" on Mac
 
             System.out.println(dataBaseURL + "\n" + userName + "\n" + password);
         }
