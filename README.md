@@ -75,7 +75,7 @@ If you dare to take a command line approach...
 
   - Seed the database using the schema file from above.
 
-  - Using Maven, run `mvn compile` to download all dependencies.
+  - Using [Maven](https://maven.apache.org/), run `mvn compile` to download all dependencies.
 
   - Using Maven, run `mvn package` to package the project into a war file.
 
