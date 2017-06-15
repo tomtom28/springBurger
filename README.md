@@ -1,8 +1,8 @@
 # :coffee: :seedling: Spring Burger :hamburger: 
 
-A re-make of my classic burger app using Java, Maven, MariaDB, Thymeleaf, and the Spring MVC framework.
+A re-make of my [classic burger app](https://github.com/tomtom28/sequelizedBurger) using Java, Maven, MariaDB, Thymeleaf, and the Spring MVC framework.
 
-It will also include an Excel download feature for users to analyze burger consumption.
+Future updates will also include an Excel download feature for users to analyze burger consumption.
 
 Check it out!
 
@@ -44,6 +44,12 @@ Be awesome, take the command line approach...
   - Finally, open up to localhost:8080 in your browser to see the webapp in action.
 
   - If needed, you can remove all downloaded dependencies using `mvn clean`.
+
+
+
+### Screenshot
+
+![Java Burger Home Page](/screenshots/spring-burger-index.png)
 
 
 
