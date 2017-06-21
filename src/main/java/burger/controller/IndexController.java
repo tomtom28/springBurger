@@ -34,21 +34,22 @@ public class IndexController {
           Statement findAllReady = conn.createStatement();
           ResultSet readyBurgers = findAllReady.executeQuery("SELECT * FROM burgers WHERE devoured = false");
           
-          // Loop over the Query ResultSet and Append to HashMap of Edible Burgers
-          HashMap<Integer, String> edibleBurgers = new HashMap<Integer, String>();
+          // Loop over the Query ResultSet and Append to ArrayList of Edible Burgers
+          ArrayList<Burger> edibleBurgers = new ArrayList<Burger>();
+
 
           while ( readyBurgers.next() ) {
               
             // Get Fields of Current ResultSet Row
             int burgerId = readyBurgers.getInt("id");
             String burgerName = readyBurgers.getString("burgerName");
-            
-            // Print Fields (for de-bugging)
-            // String p = burgerId + " | " + burgerName;
-            // System.out.println(p);
+            boolean devoured = readyBurgers.getBoolean("devoured");
 
-            // Append Burger to Edible HashMap
-            edibleBurgers.put(burgerId, burgerName);
+            // Create a new Burger
+            Burger currentBurger = new Burger(burgerId, burgerName, devoured);
+
+            // Append Burger to Edible ArrayList
+            edibleBurgers.add(currentBurger);
 
           }
 
