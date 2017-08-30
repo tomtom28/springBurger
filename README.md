@@ -2,7 +2,7 @@
 
 A re-make of my [classic burger app](https://github.com/tomtom28/sequelizedBurger) using Java, Maven, MariaDB, Thymeleaf, and the Spring MVC framework.
 
-Future updates will also include an Excel download feature for users to analyze burger consumption.
+Future updates may also include an Excel download feature for users to analyze burger consumption.
 
 Check it out!
 
@@ -12,6 +12,7 @@ https://java-burger.herokuapp.com/
 
 ### Cloning Down the Repo
 
+#### Option 1
 Save yourself the headache and open the project with IntelliJ...
 
   - Download [IntelliJ](https://www.jetbrains.com/idea/) Community Edition
@@ -27,7 +28,8 @@ Save yourself the headache and open the project with IntelliJ...
   - Finally, open up to localhost:8080 in your browser to see the webapp in action.
 
 
-Be awesome, take the command line approach...
+#### Option 2
+Be awesome and take the command line approach...
 
   - Seed the database using the schema file from above.
 
