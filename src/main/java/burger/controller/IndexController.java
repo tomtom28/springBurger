@@ -24,10 +24,10 @@ public class IndexController {
 
           // Create MySQL Connection based on localhost or Heroku deployment
           MyDatabaseConnection myDatabaseCredentials = new MyDatabaseConnection(System.getenv("JAWSDB_MARIA_URL"));
-          String url = myDatabaseCredentials.getDatabaseURL();
-          String userName = myDatabaseCredentials.getUsername();
-          String password = myDatabaseCredentials.getPassword();
-          Connection conn = DriverManager.getConnection (url, userName, password);
+          url = myDatabaseCredentials.getDatabaseURL();
+          userName = myDatabaseCredentials.getUsername();
+          password = myDatabaseCredentials.getPassword();
+          Connection conn = DriverManager.getConnection(url, userName, password);
 
 
           // Execute SQL Query for Available Burgers
@@ -117,10 +117,7 @@ public class IndexController {
         try {
 
             // Create MySQL Connection based on localhost or Heroku deployment
-            MyDatabaseConnection myDatabaseCredentials = new MyDatabaseConnection(System.getenv("JAWSDB_MARIA_URL"));
-            String url = myDatabaseCredentials.getDatabaseURL();
-            String userName = myDatabaseCredentials.getUsername();
-            String password = myDatabaseCredentials.getPassword();
+            // This uses the instance variables created when the index route was hit
             Connection conn = DriverManager.getConnection(url, userName, password);
 
 
@@ -170,10 +167,7 @@ public class IndexController {
         try {
 
             // Create MySQL Connection based on localhost or Heroku deployment
-            MyDatabaseConnection myDatabaseCredentials = new MyDatabaseConnection(System.getenv("JAWSDB_MARIA_URL"));
-            String url = myDatabaseCredentials.getDatabaseURL();
-            String userName = myDatabaseCredentials.getUsername();
-            String password = myDatabaseCredentials.getPassword();
+            // This uses the instance variables created when the index route was hit
             Connection conn = DriverManager.getConnection(url, userName, password);
 
             // Insert a new burger
@@ -196,4 +190,10 @@ public class IndexController {
 
     }
 
-    }
+
+    // Instance Variables (ivars)
+    private static String url;
+    private static String userName;
+    private static String password;
+
+}
